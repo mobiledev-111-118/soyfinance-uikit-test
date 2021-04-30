@@ -5,10 +5,14 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "auther": "wws-dev",
   "files": [
     "dist"
   ],
-  "repository": "https://github.com/mobiledev-111-118/soyfinance-uikit-test.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mobiledev-111-118/soyfinance-uikit-test.git"
+  },
   "license": "MIT",
   "scripts": {
     "start": "yarn storybook",
@@ -82,5 +86,10 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/mobiledev-111-118/soyfinance-uikit-test/issues"
+  },
+  "homepage": "https://github.com/mobiledev-111-118/soyfinance-uikit-test#readme",
+  "author": "wws-dev"
 }

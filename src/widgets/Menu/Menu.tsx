@@ -11,6 +11,9 @@ import { NavProps } from "./types";
 import Avatar from "./components/Avatar";
 import { MENU_HEIGHT, SIDEBAR_WIDTH_REDUCED, SIDEBAR_WIDTH_FULL } from "./config";
 
+import dark from '../../../src/dark.svg';
+import white from '../../../src/white.svg';
+
 const Wrapper = styled.div`
   position: relative;
   width: 100%;
@@ -39,12 +42,17 @@ const BodyWrapper = styled.div`
   display: flex;
 `;
 
-const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
+const Inner = styled.div<{ isPushed: boolean; showMenu: boolean, img: string }>`
   flex-grow: 1;
   margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate3d(0, 0, 0);
   max-width: 100%;
+
+  background-image: ${({img}) => `url(${img})`} ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 82px);
 
   ${({ theme }) => theme.mediaQueries.nav} {
     margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
@@ -141,7 +149,7 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
         />
-        <Inner isPushed={isPushed} showMenu={showMenu}>
+        <Inner isPushed={isPushed} showMenu={showMenu} img={isDark? dark: white}>
           {children}
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
