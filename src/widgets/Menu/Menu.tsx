@@ -42,22 +42,30 @@ const BodyWrapper = styled.div`
   display: flex;
 `;
 
-const Inner = styled.div<{ isPushed: boolean; showMenu: boolean, img: string }>`
+const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
   margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate3d(0, 0, 0);
   max-width: 100%;
 
-  background-image: ${({img}) => `url(${img})`} ;
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: calc(100vh - 82px);
+
 
   ${({ theme }) => theme.mediaQueries.nav} {
     margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
     max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
   }
+`;
+
+const RightPane = styled.div<{ img: string }>`
+  width: calc(100% - ${SIDEBAR_WIDTH_FULL - 20}px);
+  margin-left: ${SIDEBAR_WIDTH_FULL - 20}px;
+  margin-top: 48px;
+  background-image: ${({img}) => `url(${img})`} ;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  min-height: calc(100vh - 48px);
 `;
 
 const MobileOnlyOverlay = styled(Overlay)`
@@ -149,10 +157,12 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
         />
-        <Inner isPushed={isPushed} showMenu={showMenu} img={isDark? dark: white}>
-          {children}
-        </Inner>
-        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
+          <RightPane img={isDark? dark: white}>
+            <Inner isPushed={isPushed} showMenu={showMenu} >
+              {children}
+            </Inner>
+          </RightPane>
+          <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
       </BodyWrapper>
     </Wrapper>
   );

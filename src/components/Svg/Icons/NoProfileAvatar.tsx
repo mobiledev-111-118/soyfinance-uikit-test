@@ -9,24 +9,23 @@ const Icon: React.FC<SvgProps> = (props) => {
   const secondaryColor = theme.isDark ? "#666171" : "#bdc2c4";
 
   return (
-    <Svg viewBox="0 0 32 32" {...props}>
-      <path d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z" fill={primaryColor} />
-      <mask id="A" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
-        <path d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0s16 7.163 16 16z" fill="#c4c4c4" />
-      </mask>
-      <g mask="url(#A)">
-        <path
-          d="M25.128 16.436c0 3.115-4.133 5.641-9.231 5.641s-9.231-2.526-9.231-5.641V15h18.461v1.436zm2.205 13.806c0-3.815-5.074-6.908-11.333-6.908S4.667 26.426 4.667 30.242V32h22.667v-1.759z"
-          fill={secondaryColor}
-        />
-        <path
-          fillRule="evenodd"
-          d="M10.234 5.601C9.942 4.264 10.96 3 12.328 3c1.184 0 2.143.959 2.143 2.143v3.873l1.427-.067c.589 0 1.166.034 1.724.098V5.143c0-1.184.959-2.143 2.143-2.143 1.368 0 2.386 1.264 2.093 2.601l-.931 4.258c2.529 1.006 4.201 2.749 4.201 4.731 0 3.115-4.133 5.641-9.231 5.641s-9.231-2.526-9.231-5.641c0-2.053 1.794-3.849 4.476-4.836l-.908-4.153z"
-          fill={secondaryColor}
-        />
-        <ellipse cx="12.308" cy="14.846" rx="1.026" ry="1.538" fill={primaryColor} />
-        <ellipse cx="19.385" cy="14.846" rx="1.026" ry="1.538" fill={primaryColor} />
-      </g>
+    <Svg viewBox="0 0 101 100" {...props}>
+      <circle cx="50.1423" cy="50" r="45" fill="url(#paint0_linear)" stroke="url(#paint1_linear)" stroke-width="4"/>
+      <path d="M49.9756 45.6667C55.9587 45.6667 60.809 40.8164 60.809 34.8333C60.809 28.8502 55.9587 24 49.9756 24C43.9926 24 39.1423 28.8502 39.1423 34.8333C39.1423 40.8164 43.9926 45.6667 49.9756 45.6667Z" fill="#FAFFE6"/>
+      <path d="M52.309 50H47.9757C42.804 50 37.8441 52.0545 34.1871 55.7114C30.5301 59.3684 28.4757 64.3283 28.4757 69.5C28.4757 70.0746 28.704 70.6257 29.1103 71.0321C29.5166 71.4384 30.0677 71.6667 30.6423 71.6667H69.6423C70.217 71.6667 70.7681 71.4384 71.1744 71.0321C71.5807 70.6257 71.809 70.0746 71.809 69.5C71.809 64.3283 69.7546 59.3684 66.0976 55.7114C62.4406 52.0545 57.4807 50 52.309 50V50Z" fill="#FAFFE6"/>
+      <defs>
+        <linearGradient id="paint0_linear" x1="50.1423" y1="3" x2="50.1423" y2="97" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#52544D"/>
+        <stop offset="1" stop-color="#3B3E30"/>
+        </linearGradient>
+        <linearGradient id="paint1_linear" x1="50.1423" y1="3" x2="50.1423" y2="97" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#475222"/>
+        <stop offset="1" stop-color="#3C4323"/>
+        </linearGradient>
+        <clipPath id="clip0">
+        <rect width="100" height="100" fill="white" transform="translate(100.142 100) rotate(-180)"/>
+        </clipPath>
+      </defs>
     </Svg>
   );
 };

@@ -23,7 +23,8 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "test": "jest",
-    "release": "yarn build && yarn lerna publish"
+    "release": "yarn build && yarn lerna publish",
+    "publish": "npm publish --access public"
   },
   "jest": {
     "setupFilesAfterEnv": [

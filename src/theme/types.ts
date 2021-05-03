@@ -55,6 +55,7 @@ export type Colors = {
   backgroundAlert: string;
   backgroundHeader: string;
   text: string;
+  icontext: string;
   textDisabled: string;
   textSubtle: string;
   borderColor: string;
