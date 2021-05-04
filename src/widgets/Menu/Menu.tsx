@@ -48,30 +48,30 @@ const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate3d(0, 0, 0);
   max-width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+`;
 
-
-
+const RightPane = styled.div<{ isPushed: boolean }>`
+  margin-top: 48px;
   ${({ theme }) => theme.mediaQueries.nav} {
-    margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px`};
-    max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL : SIDEBAR_WIDTH_REDUCED}px)`};
+    width: ${({ isPushed }) => `calc(100% - ${isPushed? SIDEBAR_WIDTH_FULL - 40 : SIDEBAR_WIDTH_REDUCED}px)`};
+    margin-left: ${({ isPushed }) => `${isPushed ? SIDEBAR_WIDTH_FULL - 20 : SIDEBAR_WIDTH_REDUCED}px`};
+    max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL - 20 : SIDEBAR_WIDTH_REDUCED}px)`};
   }
 `;
 
-const RightPane = styled.div<{ img: string }>`
-  width: calc(100% - ${SIDEBAR_WIDTH_FULL - 20}px);
-  margin-left: ${SIDEBAR_WIDTH_FULL - 20}px;
-  margin-top: 48px;
-  background-image: ${({img}) => `url(${img})`} ;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  min-height: calc(100vh - 48px);
+const Img = styled.img<{ isPushed: boolean }>`
+  position: fixed;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: ${({ isPushed }) => `calc(100% - ${isPushed? SIDEBAR_WIDTH_FULL - 20 : SIDEBAR_WIDTH_REDUCED}px)`};
+    max-width: ${({ isPushed }) => `calc(100% - ${isPushed ? SIDEBAR_WIDTH_FULL - 20 : SIDEBAR_WIDTH_REDUCED}px)`};
+  }
 `;
-
 const MobileOnlyOverlay = styled(Overlay)`
   position: fixed;
   height: 100%;
-
+  background-attachment: fixed;
   ${({ theme }) => theme.mediaQueries.nav} {
     display: none;
   }
@@ -118,7 +118,7 @@ const Menu: React.FC<NavProps> = ({
       }
       refPrevOffset.current = currentOffset;
     };
-    const throttledHandleScroll = throttle(handleScroll, 200);
+    const throttledHandleScroll = throttle(handleScroll, 2);
 
     window.addEventListener("scroll", throttledHandleScroll);
     return () => {
@@ -157,7 +157,8 @@ const Menu: React.FC<NavProps> = ({
           pushNav={setIsPushed}
           links={links}
         />
-          <RightPane img={isDark? dark: white}>
+          <RightPane isPushed={isPushed}>
+            <Img src={isDark? dark: white} isPushed={isPushed}/>
             <Inner isPushed={isPushed} showMenu={showMenu} >
               {children}
             </Inner>

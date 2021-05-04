@@ -1,4 +1,4 @@
-# 🥞 Soy UIkit
+# Soy UIkit
 
 [![Version](https://img.shields.io/npm/v/@soy-libs/uikit)](https://www.npmjs.com/settings/soyfinance/packages/@soy-libs/uikit) [![Size](https://img.shields.io/bundlephobia/min/@soy-libs/uikit)](https://www.npmjs.com/settings/soyfinance/packages/@soy-libs/uikit)
 

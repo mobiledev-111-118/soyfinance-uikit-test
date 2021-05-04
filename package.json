@@ -1,6 +1,6 @@
 {
   "name": "@soy-libs/uikit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Set of UI components for soy finance projects",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -92,5 +92,11 @@
     "url": "https://github.com/mobiledev-111-118/soyfinance-uikit-test/issues"
   },
   "homepage": "https://github.com/mobiledev-111-118/soyfinance-uikit-test#readme",
-  "author": "wws-dev"
+  "author": "wws-dev",
+  "keywords": [
+    "soy-uikit",
+    "soyfinance",
+    "callisto",
+    "crypto"
+  ]
 }
