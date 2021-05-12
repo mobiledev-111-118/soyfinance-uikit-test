@@ -44,12 +44,13 @@ const BodyWrapper = styled.div`
 
 const Inner = styled.div<{ isPushed: boolean; showMenu: boolean }>`
   flex-grow: 1;
-  margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
+  // margin-top: ${({ showMenu }) => (showMenu ? `${MENU_HEIGHT}px` : 0)};
+  margin-top: 0px;
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate3d(0, 0, 0);
   max-width: 100%;
   margin-left: 20px;
-  margin-right: 20px;
+  margin-right: 0px;
 `;
 
 const RightPane = styled.div<{ isPushed: boolean }>`
